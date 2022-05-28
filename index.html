@@ -1,0 +1,285 @@
+<%@ page language="java" contentType="text/html;charset=UTF-8" %>
+<%  
+String name = ""; 
+if (session == null)
+{
+    // Not created yet. Now do so yourself.
+    response.sendRedirect("login.jsp");
+}
+else
+{
+  name =(String)session.getAttribute("userId");
+} 
+  
+%>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>BldBank</title>
+  </head>
+  <body style="overflow-x: hidden;">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Done !</strong> New Donor Is Registred.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Done !</strong> Hospital Is Registred.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">BldBank</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#joinUs">Join Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#search">Search Donor</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#aboutUs">About Us</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <h4 style="
+            padding-top: 10px;
+            margin-top: 10px;
+            padding-right: 10px;
+            color : white;
+            ">Hii <%= name %></h4>
+            <%@ include file="header.jsp" %>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <!-- Carousel -->
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://images.unsplash.com/photo-1542884841-9f546e727bca?ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8N3xCcTc3WDdCVWRtOHx8ZW58MHx8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="..." style="width: 960;height: 540;">
+        </div>
+        <div class="carousel-item">
+          <img src="https://media.istockphoto.com/photos/the-concept-of-building-love-relationships-picture-id1289885035?b=1&k=20&m=1289885035&s=170667a&w=0&h=KvSZUGsx6YLgoYzBaYviV3SlozoRWsuT1_66CFaiBY8=" class="d-block w-100" alt="..." style="width: 960;height: 540;">
+        </div>
+        <div class="carousel-item">
+          <img src="https://images.unsplash.com/photo-1603827457577-609e6f42a45e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Ymxvb2QlMjBkb25hdGlvbnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="d-block w-100" alt="..." style="width: 960;height: 540;">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- joinUs Code -->
+    <div id="joinUs">
+      <div class="card-group" style="margin-top: 60px;">
+        <div class="card" style= "padding-top: 100px;">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#user"><img src="user.jpg" class="card-img-top" alt="..." style= "width: 480.1; height: 329.13; padding-top: 10px;padding-left: 100px;"></a>
+          <div class="card-body" style="margin-top: 50px;">
+            <h5 class="card-title">New Donor</h5>
+            <p class="card-text">For User Registration Click Here .</p>
+            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          </div>
+        </div>
+        <div class="card">
+          <a href="#"  data-bs-toggle="modal" data-bs-target="#hospital"><img src="hospital.jpg" class="card-img-top" alt="..." style= "width: 580.1; height: 429.13; padding-top: 120px;padding-left: 200px;"></a>
+          <div class="card-body" style="margin-top: 50px;">
+            <h5 class="card-title">Hospital Registration</h5>
+            <p class="card-text">For Hospital Registration Click Here .</p>
+            <!--  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          </div>
+        </div>
+        <!-- <div class="card">
+          <a href="user.jsp"><img src="user.jpg" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">For User Registration Click Here .</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- Search Donor -->
+    <div id="search" style="height: 400px; padding-top: 80px;">
+      <div id="searchDonor" style="margin-top: 40px;">
+        <form style="margin-left: 600px; margin-top: 50px;" action="search.jsp">
+          <div class="row mb-3">
+            <label for="text" class="col-sm-2 col-form-label">Blood Group</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputEmail3" style="width: 200px;" name="bldGroup" required>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label for="text" class="col-sm-2 col-form-label">Location</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputPassword3" style="width: 200px;" name="location" required>
+            </div>
+          </div>
+            <button class="btn btn-primary" type="submit" data-bs-toggle="modal" style="margin-left: 140px;">Search</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- About Us -->
+    <div style=" width: 60%;
+      height: 700px;
+      border-style: solid;
+      margin-left: 340px;
+      color: black;
+      font-size: 23px;
+      padding-bottom: 10px;
+      padding-top: 300px;
+      padding: 20px;
+      margin-top: -30px;
+      margin-bottom: 10px;" id="aboutUs">
+      <h3 style="margin-top: 50px;"> Our Mission</h3>
+      The Blood Bank, Inc is dedicated to providing a reliable, economical, and high quality supply of the safest blood products in partnership with volunteer donors.
+      <h3>Making a Real Difference</h3>
+      The Blood Bank is an FDA licensed and AABB accredited blood center that is dedicated to encouraging blood donations and raising awareness about the importance of our mission. That is why we offer free information about our blood bank, the different types of blood, and how you can host your own blood drive. Independently hosted blood drives are the key to attaining the amount of donations our hospitals need to help patients during medical emergencies.
+      Donating blood is one of the most generous things you can do to help save another person's life. At the United States Blood Bank based in Miami, Florida, we make giving blood easier and more available to everyone who is willing to help our cause. We even offer the opportunity for you to host your own blood drive.
+    </div>
+    <!-- Footer -->
+    <div class="container-fluid bg-dark text-light">
+      <p class="text-center mb-0">Copyright BldBank 2021 | All rights reserved</p>
+    </div>
+    <!-- UserModal -->
+    <div class="modal fade" id="user" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Registration Form For New Doner</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            
+              <pre>
+                <form action="user" method="post">
+                <label class="main">Donor Name: </label>    <input type="text" placeholder="donorname" name="dname">
+
+                <label class="main">Mobile : </label>       <input type="text" placeholder="mobile" name="mobile">
+
+                <label class="main">Email: </label>         <input type="text" placeholder="Email" name="email">
+
+                <label class="main">Gender:</label>         <select style="width: 145px;" name="gender">
+                <option value="male">male</option>
+                <option value="female">female</option>
+                <option value="other">other</option>
+                </select>
+
+                <label class="main">Age: </label>           <input type="text" placeholder="age" name="age">
+
+                <label class="main">Blood Group: </label>   <input type="text" placeholder="blood" name="bld">
+
+                <label class="main">Location: </label>      <input type="text" placeholder="location" name="location">
+
+                <label class="main">Password: </label>      <input type="password" placeholder="password" name="password">
+                <div class="modal-footer">
+                  <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+                </form>
+            </pre>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <!-- HospitalModal -->
+  <div class="modal fade" id="hospital" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Registration Form For hospital</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <pre>
+              <form action="hospital" method="post">
+              <label class="main">Hospital Name: </label>     <input type="text" placeholder="hname" name="hname">
+
+              <label class="main">Blood Group: </label>       <input type="text" placeholder="bldGroup" name="bldGroup">
+
+              <label class="main">Address:</label>            <input type="text" placeholder="address" name="address">
+
+              <label class="main">Age: </label>               <input type="text" placeholder="age" name="age">
+
+              <label class="main">Email: </label>             <input type="text" placeholder="email" name="email">
+
+              <label class="main">Password: </label>          <input type="password" placeholder="password" name="password">
+
+               <div class="modal-footer">
+                  <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+              </form>
+            </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SearchModal -->
+
+    <!-- <%
+      String bldGroup=request.getParameter("bldGroup");
+      String location=request.getParameter("location");
+    %> -->
+
+<!--   <div class="modal fade" id="searchModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Result</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Sr No.</th>
+                <th scope="col">Blood Group</th>
+                <th scope="col">Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td><%= bldGroup %></td>
+                <td><%= location %></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- Optional JavaScript; choose one of the two! -->
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+  <!--
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  -->
+</body>
+</html>
